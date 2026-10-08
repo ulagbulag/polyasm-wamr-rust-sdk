@@ -14,6 +14,7 @@ keywords = ["api-bindings", "wasm", "webassembly"]
 include = [
     "/build.rs",
     "/src/lib.rs",
+    "/src/minimal.rs",
     "/wasm-micro-runtime/build-scripts",
     "/wasm-micro-runtime/CMakeLists.txt",
     "/wasm-micro-runtime/core/iwasm",
@@ -26,16 +27,18 @@ include = [
 [dependencies]
 
 [build-dependencies]
-bindgen = "0.72"
-cc = "1.2"
-cmake = "0.1"
+bindgen = { version = "0.72", optional = true }
+cmake = { version = "0.1", optional = true }
 
 [features]
+default = ["sdk-build"]
 custom-section = []
 dump-call-stack = []
 esp-idf = []
+hermetic-interp = []
 hw-bound-check = []
 llvmjit = []
 multi-module = []
 name-section = [ "custom-section" ]
+sdk-build = ["dep:bindgen", "dep:cmake"]
 std = []

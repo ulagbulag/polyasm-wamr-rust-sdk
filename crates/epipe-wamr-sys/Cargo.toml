@@ -1,0 +1,13 @@
+[package]
+name = "wamr-sys"
+description = "Hermetic interpreter profile of the upstream WAMR sys boundary"
+license = "Apache-2.0 WITH LLVM-exception"
+edition = "2021"
+repository = "https://github.com/bytecodealliance/wamr-rust-sdk"
+version = "1.0.0+epipe.1"
+publish = false
+build = "build.rs"
+
+[dependencies]
+
+[workspace]

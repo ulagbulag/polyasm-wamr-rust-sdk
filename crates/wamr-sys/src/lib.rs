@@ -9,5 +9,10 @@
 #![allow(non_snake_case)]
 #![cfg_attr(not(feature = "std"), no_std)]
 
-// This matches bindgen::Builder output
+#[cfg(feature = "hermetic-interp")]
+mod minimal;
+#[cfg(feature = "hermetic-interp")]
+pub use minimal::*;
+
+#[cfg(feature = "sdk-build")]
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
